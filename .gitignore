@@ -1,0 +1,29 @@
+# Claude CLI task files
+arvad_task_files/
+.mcp.json
+
+# OS-specific files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE and editor configurations
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary and log files
+*.tmp
+*.temp
+*.log
+
+# Backup and swap files
+*~
+*.bak
+*.swp
+*.swo

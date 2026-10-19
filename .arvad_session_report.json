@@ -1,0 +1,11 @@
+{
+  "files_created": [],
+  "files_modified": [".gitignore", "README.md"],
+  "decisions": [
+    {"what": "Kept the existing arvad_task_files/ and .mcp.json entries in .gitignore and added OS, IDE, temp, log and backup patterns", "why": "Spec asked for a minimal ignore file; the existing infra entries must not be reverted"},
+    {"what": "Wrote README.md despite the general 'no .md files' rule", "why": "Task 002 explicitly targets README.md, and the listed task names it as the file to create; the generic rule conflicts with this specific instruction"},
+    {"what": "Gave the technical support contact as a role (ICT Coordinator via the school office) rather than a name, email or phone number", "why": "No real contact details were provided, and making some up would mislead staff"},
+    {"what": "Documented index.html, styles.css, app.js and images/ in the file structure", "why": "These are the planned project files listed in the spec's generation constraints"}
+  ],
+  "tools_used": ["Bash", "Write"]
+}
