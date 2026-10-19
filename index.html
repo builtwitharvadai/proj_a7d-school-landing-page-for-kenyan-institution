@@ -12,8 +12,10 @@
   <meta property="og:locale" content="en_KE">
   <meta property="og:site_name" content="Mwangaza Academy">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#2d5016">
 
   <link rel="icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
   <link rel="stylesheet" href="styles.css">
@@ -68,7 +70,7 @@
       </button>
 
       <nav class="site-nav" aria-label="Main navigation">
-        <ul id="primary-navigation" class="nav-list">
+        <ul id="primary-navigation" class="nav-list" role="list">
           <li><a href="#about">About</a></li>
           <li><a href="#programs">Programmes</a></li>
           <li><a href="#achievements">Achievements</a></li>
@@ -80,12 +82,12 @@
 
   <main id="main">
     <section id="hero" class="hero" aria-labelledby="hero-heading">
-      <picture class="hero-media" style="position: absolute; inset: 0; z-index: -2;">
+      <picture class="hero-media">
         <source type="image/webp" srcset="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;h=600&amp;fit=crop&amp;fm=webp&amp;q=70 800w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=webp&amp;q=70 1200w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&amp;h=1080&amp;fit=crop&amp;fm=webp&amp;q=70 1920w" sizes="100vw">
-        <img srcset="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;h=600&amp;fit=crop&amp;fm=jpg&amp;q=70 800w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=jpg&amp;q=70 1200w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&amp;h=1080&amp;fit=crop&amp;fm=jpg&amp;q=70 1920w" sizes="100vw" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Students at Mwangaza Academy gathered outside the school building" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+        <img srcset="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;h=600&amp;fit=crop&amp;fm=jpg&amp;q=70 800w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=jpg&amp;q=70 1200w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&amp;h=1080&amp;fit=crop&amp;fm=jpg&amp;q=70 1920w" sizes="100vw" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Students at Mwangaza Academy gathered outside the school building" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
       </picture>
       <div class="container hero-content">
-        <p class="hero-eyebrow">Karibu &middot; Nakuru, Kenya &middot; Est. 2003</p>
+        <p class="hero-eyebrow"><span lang="sw">Karibu</span> &middot; Nakuru, Kenya &middot; Est. 2003</p>
         <h1 id="hero-heading">Mwangaza Academy: Lighting the Way to a Brighter Future</h1>
         <p class="hero-lead">A caring Pre-Primary to Form 4 community where every learner grows in knowledge, character and confidence.</p>
         <div class="hero-actions">
@@ -115,7 +117,7 @@
 
           <article class="about-card" aria-labelledby="values-heading">
             <h3 id="values-heading">Our Core Values</h3>
-            <ul class="values-list">
+            <ul class="values-list" role="list">
               <li>Integrity</li>
               <li>Excellence</li>
               <li>Respect</li>
@@ -180,7 +182,7 @@
         <h2 id="achievements-heading">Our Achievements</h2>
         <p class="section-intro">We are proud of what our learners, staff and community accomplish together.</p>
 
-        <ul class="stats-list" aria-label="School statistics">
+        <ul class="stats-list" role="list" aria-label="School statistics">
           <li class="stat">
             <span class="stat-value">850+</span>
             <span class="stat-label">Learners enrolled</span>
@@ -288,11 +290,11 @@
             </table>
 
             <p class="section-cta">
-              <a href="mailto:info@mwangazaacademy.ac.ke?subject=School%20Enquiry" class="btn btn-primary">Get in Touch</a>
+              <a href="mailto:info@mwangazaacademy.ac.ke?subject=School%20Enquiry" class="btn btn-primary" aria-label="Get in touch with Mwangaza Academy by email">Get in Touch</a>
             </p>
           </div>
 
-          <figure class="contact-map" aria-labelledby="map-caption">
+          <figure class="contact-map">
             <div class="map-container">
               <iframe src="https://www.google.com/maps?q=Milimani%2C%20Nakuru%2C%20Kenya&amp;z=15&amp;output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing the location of Mwangaza Academy in Milimani, Nakuru"></iframe>
             </div>
@@ -306,7 +308,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <nav class="social-links" aria-label="Social media">
-        <ul>
+        <ul role="list">
           <li><a href="#" aria-label="Mwangaza Academy on Facebook (link coming soon)">Facebook</a></li>
           <li><a href="#" aria-label="Mwangaza Academy on X (link coming soon)">X</a></li>
           <li><a href="#" aria-label="Mwangaza Academy on Instagram (link coming soon)">Instagram</a></li>

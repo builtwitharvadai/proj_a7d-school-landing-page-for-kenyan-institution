@@ -1,15 +1,15 @@
 {
   "files_created": [],
-  "files_modified": ["index.html", "styles.css"],
+  "files_modified": ["index.html", "styles.css", "app.js", "README.md"],
   "decisions": [
-    {"what": "Used the school identity 'Mwangaza Academy', Milimani Road, P.O. Box 1234 - 20100, Nakuru, with phone +254 712 345 678 and email info@mwangazaacademy.ac.ke", "why": "The spec asks for real school details but does not give any; a culturally appropriate Kenyan identity replaces every 'School Name' and [placeholder] token consistently"},
-    {"what": "Restructured programmes into three cards: Pre-Primary (PP1-PP2), Primary (Class 1-8), Secondary (Form 1-4), dropped the Junior School card, and changed the programs grid from 4 to 3 columns at 1024px", "why": "The spec lists exactly these three grade levels; 3 cards in a 4-column grid would leave an empty column"},
-    {"what": "Google Maps iframe uses https://www.google.com/maps?q=...&output=embed instead of a /maps/embed?pb=... URL, with a title attribute for accessibility", "why": "A valid pb parameter cannot be produced without the Maps UI; the q/output=embed form works without an API key and keeps every attribute the spec requires"},
-    {"what": "Achievement badges are emoji spans with aria-hidden inside the card headings, alongside filled-in stats and testimonials", "why": "The spec asks for icons or badges; emoji need no extra assets and are hidden from screen readers"},
-    {"what": "Operating hours are now a <table> with row/column headers (Mon-Fri 7:00 AM - 4:00 PM; weekends/holidays closed)", "why": "The spec asks for a table; scoped headers keep it accessible"},
-    {"what": "Contact link selectors use :not(.btn)", "why": "The 'Get in Touch' CTA is a mailto link styled as .btn-primary; without the exclusion the attribute selector (higher specificity) would override the button styling"},
-    {"what": "Added small layout rules (.section-cta, .about-history, paragraph spacing in about cards and history) and removed the unused .map-frame/.map-placeholder styles", "why": "The new markup needs spacing because the CSS reset removes margins; the placeholder map markup no longer exists"},
-    {"what": "JSON-LD LocalBusiness block placed in <head>", "why": "Spec requires Schema.org structured data with contact info"}
+    {"what": "Added theme-color (#2d5016) meta and apple-touch-icon link; marked 'Karibu' with lang=\"sw\"; added role=\"list\" to class-styled lists; removed redundant aria-labelledby on the map figure; gave the email CTA a descriptive aria-label", "why": "Spec asks for missing meta tags, lang on non-English text and ARIA where semantics are insufficient (Safari drops list semantics when list-style is none). Existing alt text, heading order and skip link already met the spec"},
+    {"what": "Moved the hero picture/img inline styles into .hero-media rules in styles.css", "why": "HTML cleanup; keeps presentation in the stylesheet"},
+    {"what": "Focus ring changed to --color-primary on light backgrounds, with a new --color-secondary-light (#f8c471) for hero/footer; hero eyebrow and footer link hover use the light tint; hero overlay raised from 0.25 to 0.45", "why": "Orange #e67e22 failed 3:1 for focus rings on white and 4.5:1 for small text on the dark footer/hero"},
+    {"what": "Removed unused .hours-list selectors and text-badge properties on .logo-mark (now an img); replaced tel:/mailto: attribute selectors with .contact-list a", "why": "Unused CSS and simpler selectors"},
+    {"what": "Dropped !important in print where cascade order is enough; kept it on universal print colour reset, reduced-motion overrides, and the new rule that forces JS-hidden sections visible in print", "why": "Those overrides cannot win otherwise (universal selector / inline styles)"},
+    {"what": "No font-display change", "why": "The site uses a system font stack with no @font-face, so there is nothing to swap"},
+    {"what": "app.js: per-feature safeInit try/catch with prefixed console.error, delegated smooth-scroll listener, menu document listeners added only while open and removed on close, observers disconnect once all targets are handled, feature detection (closest fallback, IntersectionObserverEntry, HTMLImageElement, scrollIntoView/focus options), runs immediately if DOM already parsed", "why": "Spec asks for error handling, event cleanup, observer disconnect and feature detection; IIFE + strict mode kept so no globals"},
+    {"what": "README Lighthouse and Core Web Vitals figures are labelled as targets, with a blank results log", "why": "No browser or Lighthouse was available in this environment, so results could not be measured; inventing scores would be misleading"}
   ],
-  "tools_used": ["Read", "Bash", "Write"]
+  "tools_used": ["Read", "Bash", "Edit", "Write"]
 }
