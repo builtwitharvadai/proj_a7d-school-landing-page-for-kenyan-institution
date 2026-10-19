@@ -115,6 +115,79 @@ Many visitors will view the site on mobile phones using mobile data, so keeping 
 
 ---
 
+## Image Management
+
+The page currently shows sample photos linked directly from [Unsplash](https://unsplash.com/). The school logo (`images/logo.png`) and browser tab icon (`images/favicon.ico`) are read from the `images/` folder, so add those two files there. Over time, replace the sample photos with real photos of the school.
+
+### Sourcing images
+
+- **School photos first:** real photos of your classrooms, grounds, learners and events build the most trust with parents.
+- **Free stock photos:** [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/) offer photos that are free to use, including commercially, without asking permission. Crediting the photographer is appreciated but not required.
+- **Avoid** images copied from Google search results or other websites – they are usually protected by copyright.
+- **Consent:** get written consent from parents or guardians before publishing photos in which learners can be identified.
+
+### Recommended dimensions
+
+| Where it appears | Size (width × height) | Notes |
+|------------------|-----------------------|-------|
+| Hero banner (top of the page) | **1920 × 1080** pixels | Also save smaller copies at 1200 and 800 pixels wide |
+| Programme and achievement cards | **800 × 600** pixels | Also save a 400-pixel-wide copy for phones |
+| Logo (`logo.png`) | 80 × 80 pixels | Square, transparent background |
+| Favicon (`favicon.ico`) | 32 × 32 pixels | Create one free at [favicon.io](https://favicon.io/) |
+
+### Optimisation tools
+
+- **[Squoosh](https://squoosh.app/)** – free, works in the browser. Resize the image, choose the output format, and adjust quality (around 70–75 keeps photos sharp but small).
+- **[TinyPNG](https://tinypng.com/)** – free, drag and drop. Shrinks `.jpg`, `.png` and `.webp` files without visible loss of quality.
+
+**Maximum file size:** keep every image under **200 KB**. Card images at 800 pixels wide should usually be well below 100 KB.
+
+### Creating WebP versions
+
+WebP files are typically 25–35% smaller than JPEG. The page offers WebP to browsers that support it and falls back to JPEG for older ones, so each photo needs both versions.
+
+1. Open the photo in [Squoosh](https://squoosh.app/).
+2. Under **Resize**, set the width (for example `800`).
+3. Under **Compress**, choose **WebP**, set quality to about 75, and download. Name it e.g. `library-800w.webp`.
+4. Repeat with **MozJPEG** selected to download `library-800w.jpg`.
+5. Repeat steps 2–4 for the smaller width (for example `400`), giving `library-400w.webp` and `library-400w.jpg`.
+6. Upload all files to the `images/` folder.
+
+### Replacing a photo on the page
+
+Each photo in `index.html` sits inside a `<picture>` block like this:
+
+```html
+<picture class="card-media">
+  <source type="image/webp" srcset="images/library-400w.webp 400w, images/library-800w.webp 800w" sizes="(max-width: 768px) 100vw, 50vw">
+  <img srcset="images/library-400w.jpg 400w, images/library-800w.jpg 800w" sizes="(max-width: 768px) 100vw, 50vw" src="images/library-800w.jpg" alt="Students reading together in the school library" width="800" height="533" loading="lazy" decoding="async">
+</picture>
+```
+
+1. Replace the addresses in `srcset="..."` (both lines) and `src="..."` with your new file names.
+2. If the new photo has a different shape, update `width` and `height` to match its real pixel size.
+3. Leave `sizes`, `loading` and `decoding` as they are. The hero banner uses `loading="eager"` because it is the first thing visitors see – do not change it to `lazy`.
+
+### Writing alt text
+
+The `alt="..."` text is read aloud by screen readers and shown when an image cannot load.
+
+- Describe what the photo shows and why it matters, e.g. `alt="Grade 4 learners carrying out a science experiment"`.
+- Do **not** write `image`, `photo` or `picture of` – screen readers already announce that it is an image.
+- Keep it to one short sentence (under about 125 characters).
+- Always update the alt text whenever you replace a photo.
+
+### Testing on slow connections
+
+Many families browse on mobile data, so check the page on a slow connection after adding images:
+
+1. Open the page in Chrome and press `F12` to open Developer Tools.
+2. Open the **Network** tab and change **No throttling** to **Slow 4G** (or **3G**).
+3. Refresh the page. The top of the page should appear within a few seconds, and photos further down should load only as you scroll to them.
+4. If the page feels slow, look in the **Size** column for any image over 200 KB and optimise it again.
+
+---
+
 ## Deployment (Publishing on GitHub Pages)
 
 The site is hosted for free on GitHub Pages. Once set up, any change saved to the `main` branch goes live automatically within a few minutes.
