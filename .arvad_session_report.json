@@ -1,10 +1,1 @@
-{
-  "files_created": [],
-  "files_modified": ["index.html"],
-  "decisions": [
-    {"what": "Added <link rel=\"stylesheet\" href=\"styles.css\"> as the last element in <head>, after the meta tags", "why": "Spec requires the stylesheet link in <head>; the project's head-order rules place stylesheets after meta tags"},
-    {"what": "Added <script src=\"app.js\" defer></script> just before </body>", "why": "Explicitly requested by the spec, even though app.js is listed in forbidden_imports and does not exist yet; with defer, a missing file causes only a 404 and does not block rendering"},
-    {"what": "Used relative paths with no leading slash and double quotes", "why": "Spec requires paths that work on GitHub Pages; double quotes match the existing attribute style in index.html"}
-  ],
-  "tools_used": ["Bash"]
-}
+{"files_created": ["app.js"], "files_modified": [], "decisions": [{"what": "Menu toggle selects '.hamburger' with fallback to '.nav-toggle'", "why": "Spec names .hamburger but index.html uses .nav-toggle; fallback keeps the feature working"}, {"what": "Scroll animation sets initial/transition styles inline and adds 'visible' class", "why": "styles.css has no fade-in/visible rules; hiding only after IntersectionObserver is confirmed avoids invisible content without JS"}, {"what": "Lazy loading uses data-src/data-srcset with native loading='lazy' when supported, IntersectionObserver otherwise", "why": "Spec requires fallback for browsers without native lazy loading"}, {"what": "Smooth scroll uses 'auto' behavior under prefers-reduced-motion", "why": "Respect reduced-motion preference"}], "tools_used": ["Bash", "Write"]}
