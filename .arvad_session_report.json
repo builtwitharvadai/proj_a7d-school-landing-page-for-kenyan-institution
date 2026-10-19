@@ -1,12 +1,13 @@
 {
-  "files_created": ["index.html"],
+  "files_created": ["styles.css"],
   "files_modified": [],
   "decisions": [
-    {"what": "Did not link styles.css or app.js", "why": "Spec says the file will link to them later, and both are listed as forbidden imports because they do not exist yet"},
-    {"what": "Used text and div placeholders for the logo and map instead of img/iframe elements", "why": "No images/ folder or map embed exists yet; this avoids broken resources"},
-    {"what": "Structured programmes by Kenyan CBC levels (Pre-Primary, Primary, Junior School, Senior School)", "why": "Spec asks for grade levels, and the site is for a Kenyan institution"},
-    {"what": "Added placeholder testimonials and stats inside the achievements section", "why": "The design rules select the social_proof_heavy pattern; content stays as placeholders as the spec requires"},
-    {"what": "Left the og:image and canonical URL out", "why": "There is no real image or deployment URL yet, and inventing them would give wrong metadata"}
+    {"what": "Pure CSS hamburger menu shown via .nav-toggle:focus, .site-nav:focus-within, or aria-expanded=\"true\"", "why": "Spec requires a pure CSS menu; focus-based selectors keep it usable without JavaScript, and the aria-expanded selector lets future JS take over"},
+    {"what": "Hero uses a brand gradient with a dark overlay pseudo-element instead of a photo", "why": "No images exist in the project yet; the overlay is ready for a background image later"},
+    {"what": "Kenyan cultural accents done with CSS gradients (flag-colour stripe on hero, tri-colour heading underline)", "why": "Task asks for Kenyan visual elements without adding image weight on slow connections"},
+    {"what": "No box-shadows on cards/sections; hover effects use transform only", "why": "Spec performance rules: avoid shadows on large elements, use transform for animation"},
+    {"what": "Did not add scroll-reveal hidden states", "why": "Not in the spec, and the rules say content must stay visible by default without JS"},
+    {"what": "Did not link styles.css from index.html", "why": "Spec only covers creating styles.css"}
   ],
   "tools_used": ["Bash", "Read", "Write"]
 }
