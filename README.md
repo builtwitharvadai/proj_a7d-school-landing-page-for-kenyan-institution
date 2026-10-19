@@ -1,0 +1,2 @@
+# proj_a7d-school-landing-page-for-kenyan-institution
+A static, single-page website serving as the digital front door for a school in Kenya. The landing page will showcase essential school information, values, and contact details to prospective students, parents, and community members. This is a straightforward web presence designed to establish credibility and provide key information without complex
