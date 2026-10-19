@@ -13,6 +13,7 @@
   --color-primary-light: #e8efe3;
   --color-secondary: #e67e22;
   --color-secondary-dark: #c96a15;
+  --color-secondary-light: #f8c471;
   --color-accent: #8b4513;
   --color-text: #333;
   --color-text-muted: #5a5a5a;
@@ -232,8 +233,14 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-secondary);
+  outline: 3px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+/* Dark backgrounds need a lighter ring to keep 3:1 non-text contrast */
+.hero :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--color-secondary-light);
 }
 
 /* --------------------------------------------------------------------------
@@ -270,16 +277,12 @@ a:hover {
 }
 
 .logo-mark {
-  display: inline-grid;
-  place-items: center;
   flex-shrink: 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  object-fit: cover;
   background-color: var(--color-primary);
-  color: var(--color-on-primary);
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
   border: 2px solid var(--color-secondary);
 }
 
@@ -362,7 +365,8 @@ a:hover {
   border-bottom: 0;
 }
 
-.nav-list a:hover {
+.nav-list a:hover,
+.nav-list a:focus-visible {
   color: var(--color-primary);
 }
 
@@ -386,7 +390,8 @@ a:hover {
     border-color var(--transition-fast), color var(--transition-fast);
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus-visible {
   transform: translateY(-2px);
 }
 
@@ -400,7 +405,8 @@ a:hover {
   color: #1a1a1a;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
   background-color: var(--color-secondary-dark);
   border-color: var(--color-secondary-dark);
   color: #1a1a1a;
@@ -412,7 +418,8 @@ a:hover {
   color: var(--color-on-primary);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
   background-color: var(--color-on-primary);
   border-color: var(--color-on-primary);
   color: var(--color-primary);
@@ -446,7 +453,7 @@ a:hover {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.45);
   background-image: repeating-linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.04) 0 2px,
@@ -471,6 +478,18 @@ a:hover {
   );
 }
 
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -488,7 +507,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-secondary);
+  color: var(--color-secondary-light);
 }
 
 .hero-lead {
@@ -676,40 +695,31 @@ a:hover {
   margin-top: var(--space-4);
 }
 
-.contact-list,
-.hours-list {
+.contact-list {
   display: grid;
   gap: var(--space-1);
 }
 
-.contact-list dt,
-.hours-list dt {
+.contact-list dt {
   font-weight: 700;
   color: var(--color-accent);
 }
 
-.contact-list dd,
-.hours-list dd {
+.contact-list dd {
   margin-bottom: var(--space-1);
 }
 
+/* Clickable phone and email links: distinct from body text, with a clear
+   hover/focus state. */
 .contact-list a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
   overflow-wrap: anywhere;
 }
 
-/* Clickable phone and email links: distinct from body text, with a clear
-   hover/focus state. Buttons keep their own styling. */
-a[href^="tel:"]:not(.btn),
-a[href^="mailto:"]:not(.btn) {
-  color: var(--color-primary);
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-a[href^="tel:"]:not(.btn):hover,
-a[href^="tel:"]:not(.btn):focus-visible,
-a[href^="mailto:"]:not(.btn):hover,
-a[href^="mailto:"]:not(.btn):focus-visible {
+.contact-list a:hover,
+.contact-list a:focus-visible {
   color: var(--color-accent);
   text-decoration-thickness: 2px;
 }
@@ -802,8 +812,9 @@ a[href^="mailto:"]:not(.btn):focus-visible {
   font-weight: 600;
 }
 
-.social-links a:hover {
-  color: var(--color-secondary);
+.social-links a:hover,
+.social-links a:focus-visible {
+  color: var(--color-secondary-light);
   text-decoration: underline;
 }
 
@@ -961,9 +972,14 @@ a[href^="mailto:"]:not(.btn):focus-visible {
   }
 
   .btn:hover,
+  .btn:focus-visible,
   .program-card:hover,
   .achievement-card:hover {
     transform: none;
+  }
+
+  .nav-list a::after {
+    transition: none;
   }
 }
 
@@ -978,8 +994,15 @@ a[href^="mailto:"]:not(.btn):focus-visible {
   .site-footer,
   .hero-actions,
   .section-cta,
-  .contact-map {
-    display: none !important;
+  .contact-map,
+  .hero-media {
+    display: none;
+  }
+
+  /* Sections hidden by the scroll reveal script must still print */
+  main section {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   *,
@@ -1031,7 +1054,7 @@ a[href^="mailto:"]:not(.btn):focus-visible {
   .achievement-card,
   .testimonial,
   .stat {
-    border: 1px solid #000 !important;
+    border: 1px solid #000;
     page-break-inside: avoid;
     break-inside: avoid;
   }
@@ -1051,6 +1074,19 @@ a[href^="mailto:"]:not(.btn):focus-visible {
   .stat,
   .testimonial {
     margin-bottom: 0.5cm;
+  }
+
+  img {
+    max-height: 6cm;
+    width: auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  p,
+  blockquote {
+    orphans: 3;
+    widows: 3;
   }
 
   a[href^="http"]::after {

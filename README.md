@@ -222,6 +222,117 @@ If the school owns a domain (e.g. `www.ourschool.ac.ke`), enter it under **Setti
 
 ---
 
+## Testing and Performance
+
+This section records the quality targets for the site, what has been built in to meet them, and how to check them yourself. Re-run these checks after any large change (new section, new photos, or edits to `styles.css` or `app.js`).
+
+> **Note:** The figures below are the **targets** the page is built to meet. Lighthouse and device results depend on the browser, device and network used, so record your own measured results in the [Test results log](#test-results-log) each time you test.
+
+### Lighthouse scores
+
+[Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) is a free checker built into Chrome. Test in **Mobile** mode.
+
+| Category | Target score | What supports it |
+|----------|:------------:|------------------|
+| Performance | 90 or higher | No web fonts or frameworks, a single small CSS and JS file, `defer` on the script, responsive WebP photos, lazy loading below the fold, a high-priority hero image |
+| Accessibility | 95 or higher | Skip link, landmarks, sequential headings, descriptive alt text, labelled menu button, visible focus rings, WCAG AA colours |
+| Best Practices | 95 or higher | HTTPS images and map, explicit image sizes (no layout shift), no console errors |
+| SEO | 95 or higher | Page title, meta description, `lang` attribute, Open Graph tags, structured data (Schema.org) |
+
+### Performance metrics (Slow 3G / Slow 4G)
+
+| Metric | Target on 3G | Target on 4G | Notes |
+|--------|:------------:|:------------:|-------|
+| First Contentful Paint (FCP) | under 3.0 s | under 1.8 s | Text and colours appear before photos load |
+| Largest Contentful Paint (LCP) | under 4.0 s | under 2.5 s | The hero photo is usually the largest element |
+| Time to Interactive (TTI) | under 5.0 s | under 3.8 s | `app.js` is small and loads with `defer` |
+| Cumulative Layout Shift (CLS) | under 0.1 | under 0.1 | Every image has `width` and `height` set |
+
+Page weight of our own files (before server compression): `index.html` about 21 KB, `styles.css` about 23 KB and `app.js` about 10 KB. Photos are loaded from Unsplash in sizes that match the screen.
+
+### Browser compatibility
+
+| Browser | Versions to test | Expected support |
+|---------|------------------|------------------|
+| Google Chrome (desktop and Android) | Latest 2 versions | Full |
+| Mozilla Firefox | Latest 2 versions | Full |
+| Apple Safari (macOS and iOS) | 15 and newer | Full |
+| Microsoft Edge | Latest 2 versions | Full |
+| Older browsers (e.g. Safari 12, Opera Mini) | Not tested | Content, links and contact details work; smooth scrolling and fade-in effects are skipped |
+
+Every interactive feature checks that the browser supports it first, so the page never breaks on older phones. It just looks a little plainer.
+
+### Device testing
+
+| Device type | What to check |
+|-------------|---------------|
+| iPhone (Safari, iOS 15+) | Menu opens and closes, phone number opens the dialler, map loads, no sideways scrolling |
+| Android phone (Chrome, Android 10+) | Same as above, plus the page loads quickly on mobile data |
+| Low-cost Android phone (small screen, 360 px wide) | Text is readable without zooming and buttons are easy to tap |
+| Tablet | Layout switches to two columns, navigation shows as a row |
+| Desktop / laptop | Three-column cards, full-height hero, keyboard navigation works |
+
+### Accessibility compliance (WCAG 2.1 AA)
+
+The page is designed to meet **WCAG 2.1 Level AA**:
+
+- **Keyboard:** press `Tab` from the top of the page. The first stop is "Skip to main content", and every link and button shows a clear focus ring.
+- **Screen readers:** headings run in order (one main heading, then section and card headings), all photos have descriptive alt text, the menu button announces whether it is open or closed, and Kiswahili words are marked with `lang="sw"` so they are pronounced correctly.
+- **Colour contrast:** body text and links meet 4.5:1 and large text and focus rings meet 3:1.
+- **Reduced motion:** visitors who turn on "reduce motion" on their phone or computer do not see the fade-in or smooth scrolling effects.
+- **Print:** the page prints cleanly in black and white without the menu, map or buttons.
+
+### Known issues and limitations
+
+- The social media links in the footer are placeholders until the school's official accounts are added. Replace each `href="#"` with the real page address.
+- `images/logo.png`, `images/favicon.ico` and `images/apple-touch-icon.png` (180 × 180 px) must be added to the `images/` folder. Until then the logo shows its alt text and browsers show a default tab icon.
+- Photos and the map are loaded from Unsplash and Google. If either service is blocked or offline, the page still works but those images will not appear.
+- The Google Map is a large embed. On very slow connections it may take a few seconds to show after you scroll to it.
+
+### Running the tests locally
+
+**1. Lighthouse (Chrome)**
+
+1. Open the page in Chrome. For the most accurate results, use the live GitHub Pages address, or run a local server (see step 4).
+2. Press `F12`, open the **Lighthouse** tab, choose **Mobile** and tick all categories.
+3. Click **Analyze page load** and compare the scores with the targets above.
+
+**2. Slow connection check**
+
+Follow the steps in [Testing on slow connections](#testing-on-slow-connections), choosing **3G** to check the FCP and LCP targets in the Lighthouse or **Performance** tab.
+
+**3. Keyboard and screen reader check**
+
+1. Put the mouse aside and use only `Tab`, `Shift + Tab` and `Enter` to move through the page and open the menu.
+2. Optionally, turn on a screen reader: **NVDA** (free, Windows), **VoiceOver** (`Cmd + F5` on Mac, or Settings → Accessibility on iPhone) or **TalkBack** (Android).
+
+**4. Local server (for the technical contact)**
+
+Some browser features work best over `http://` instead of opening the file directly. From the project folder, run one of:
+
+```
+python3 -m http.server 8000
+npx serve .
+```
+
+Then open `http://localhost:8000` (or the address shown) in your browser. To run Lighthouse from the command line instead: `npx lighthouse http://localhost:8000 --view`.
+
+**5. Validation**
+
+- HTML: upload `index.html` to the [W3C Markup Validator](https://validator.w3.org/#validate_by_upload).
+- CSS: upload `styles.css` to the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_upload).
+- Accessibility: run [WAVE](https://wave.webaim.org/) on the live address.
+
+### Test results log
+
+Record each round of testing here so changes over time are easy to spot.
+
+| Date | Tested by | Device / browser | Performance | Accessibility | Best Practices | SEO | Notes |
+|------|-----------|------------------|:-----------:|:-------------:|:--------------:|:---:|-------|
+| | | | | | | | |
+
+---
+
 ## Technical Support
 
 For problems you cannot solve using this guide, contact the school's designated technical contact:
@@ -248,3 +359,7 @@ When asking for help, please include: what you were trying to change, which file
 | The page loads slowly on phones | Images are too large | Follow the Image Optimisation Guidelines above |
 | The mobile menu does not open | `app.js` is missing or has an error | Make sure `app.js` is in the main folder and has not been edited by mistake; contact technical support |
 | The live site shows a "404" page | GitHub Pages is not set up, or `index.html` was renamed | Check **Settings → Pages** and confirm the main file is still named exactly `index.html` |
+| Lighthouse scores are much lower than expected | Browser extensions, or testing the file directly instead of over `http://` | Test in an Incognito/Private window and use the live site or a local server (see Running the tests locally) |
+| Sections stay invisible or faded | An error in `app.js` stopped the page scripts | Press `F12` and open the **Console** tab; errors from the site start with `[school-landing]`. Restore your backup of `app.js` |
+| The keyboard focus ring is not visible | A colour in `styles.css` was changed to one that blends into the background | Restore the original `--color-primary` / `--color-secondary-light` values, or pick a colour that passes a contrast checker such as [WebAIM](https://webaim.org/resources/contrastchecker/) |
+| The map is blank | Google Maps is blocked on the network, or the connection is very slow | Check that `https://www.google.com/maps` opens in the same browser; the address and phone number above the map still work |
