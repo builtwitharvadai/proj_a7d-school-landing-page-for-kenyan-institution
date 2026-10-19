@@ -1,1 +1,13 @@
-{"files_created": ["app.js"], "files_modified": [], "decisions": [{"what": "Menu toggle selects '.hamburger' with fallback to '.nav-toggle'", "why": "Spec names .hamburger but index.html uses .nav-toggle; fallback keeps the feature working"}, {"what": "Scroll animation sets initial/transition styles inline and adds 'visible' class", "why": "styles.css has no fade-in/visible rules; hiding only after IntersectionObserver is confirmed avoids invisible content without JS"}, {"what": "Lazy loading uses data-src/data-srcset with native loading='lazy' when supported, IntersectionObserver otherwise", "why": "Spec requires fallback for browsers without native lazy loading"}, {"what": "Smooth scroll uses 'auto' behavior under prefers-reduced-motion", "why": "Respect reduced-motion preference"}], "tools_used": ["Bash", "Write"]}
+{
+  "files_created": ["images/.gitkeep"],
+  "files_modified": ["index.html", "README.md"],
+  "decisions": [
+    {"what": "Created images/.gitkeep as an empty file", "why": "Spec allows an empty file to keep the directory tracked"},
+    {"what": "Used Unsplash direct-link URLs (fm=webp / fm=jpg, 400w/800w) for hero and card <picture> elements instead of local images/*.webp/jpg files", "why": "images/ is empty, and the spec says to replace placeholder images with Unsplash URLs; Unsplash serves both formats, so the WebP/JPEG fallback still works"},
+    {"what": "Kept favicon and logo pointing at local images/favicon.ico and images/logo.png", "why": "Spec explicitly specifies these paths"},
+    {"what": "Hero image positioned behind content with minimal inline styles (absolute, z-index -2, object-fit cover)", "why": "Spec scope covers only index.html; the existing hero uses isolation and a z-index -1 overlay, so this places the photo beneath the overlay without editing styles.css"},
+    {"what": "Added images to program cards and achievement cards with lazy loading, width/height, sizes and descriptive alt text", "why": "Spec asks for picture elements on program cards and other sections"},
+    {"what": "Added an 'Image Management' section to README after the existing image guidelines", "why": "Spec requests sourcing, tools, dimensions, WebP, alt text, 200KB limit and slow-connection testing guidance"}
+  ],
+  "tools_used": ["Bash", "Edit", "Write"]
+}

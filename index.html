@@ -13,6 +13,9 @@
   <meta property="og:site_name" content="School Name">
   <meta name="twitter:card" content="summary_large_image">
 
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,7 +24,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#hero" class="logo" aria-label="School Name, back to top">
-        <span class="logo-mark" aria-hidden="true">SN</span>
+        <img class="logo-mark" src="images/logo.png" alt="School Name Logo" width="40" height="40">
         <span class="logo-text">School Name</span>
       </a>
 
@@ -44,6 +47,10 @@
 
   <main id="main">
     <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <picture class="hero-media" style="position: absolute; inset: 0; z-index: -2;">
+        <source type="image/webp" srcset="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;h=600&amp;fit=crop&amp;fm=webp&amp;q=70 800w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=webp&amp;q=70 1200w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&amp;h=1080&amp;fit=crop&amp;fm=webp&amp;q=70 1920w" sizes="100vw">
+        <img srcset="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;h=600&amp;fit=crop&amp;fm=jpg&amp;q=70 800w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=jpg&amp;q=70 1200w, https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&amp;h=1080&amp;fit=crop&amp;fm=jpg&amp;q=70 1920w" sizes="100vw" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&amp;h=800&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Students at School Name gathered outside the school building" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+      </picture>
       <div class="container hero-content">
         <p class="hero-eyebrow">Welcome to School Name</p>
         <h1 id="hero-heading">Nurturing curious minds for a brighter Kenya</h1>
@@ -91,24 +98,40 @@
 
         <div class="programs-grid">
           <article class="program-card" aria-labelledby="program-pre-primary">
+            <picture class="card-media">
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&amp;h=267&amp;fit=crop&amp;fm=webp&amp;q=70 400w, https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&amp;h=533&amp;fit=crop&amp;fm=webp&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img srcset="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&amp;h=267&amp;fit=crop&amp;fm=jpg&amp;q=70 400w, https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Young pre-primary learners exploring colourful play-based learning materials" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
             <h3 id="program-pre-primary">Pre-Primary</h3>
             <p class="program-grades">PP1 &ndash; PP2</p>
             <p>Play-based learning that builds early literacy, numeracy and social skills in a warm, nurturing setting.</p>
           </article>
 
           <article class="program-card" aria-labelledby="program-primary">
+            <picture class="card-media">
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&amp;h=267&amp;fit=crop&amp;fm=webp&amp;q=70 400w, https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&amp;h=533&amp;fit=crop&amp;fm=webp&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img srcset="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&amp;h=267&amp;fit=crop&amp;fm=jpg&amp;q=70 400w, https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Primary school pupils seated at their desks during a classroom lesson" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
             <h3 id="program-primary">Primary School</h3>
             <p class="program-grades">Grade 1 &ndash; Grade 6</p>
             <p>A strong foundation in core subjects, creative arts and physical education, with a focus on curiosity and confidence.</p>
           </article>
 
           <article class="program-card" aria-labelledby="program-junior">
+            <picture class="card-media">
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&amp;h=267&amp;fit=crop&amp;fm=webp&amp;q=70 400w, https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&amp;h=533&amp;fit=crop&amp;fm=webp&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img srcset="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&amp;h=267&amp;fit=crop&amp;fm=jpg&amp;q=70 400w, https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Junior school learners working together on a practical study project" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
             <h3 id="program-junior">Junior School</h3>
             <p class="program-grades">Grade 7 &ndash; Grade 9</p>
             <p>Broader learning areas, practical projects and mentorship that help learners discover their strengths and interests.</p>
           </article>
 
           <article class="program-card" aria-labelledby="program-senior">
+            <picture class="card-media">
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&amp;h=267&amp;fit=crop&amp;fm=webp&amp;q=70 400w, https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&amp;h=533&amp;fit=crop&amp;fm=webp&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img srcset="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&amp;h=267&amp;fit=crop&amp;fm=jpg&amp;q=70 400w, https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Senior school graduates celebrating by throwing their caps into the air" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
             <h3 id="program-senior">Senior School</h3>
             <p class="program-grades">Grade 10 &ndash; Grade 12</p>
             <p>Specialised pathways that prepare learners for further education, careers and responsible citizenship.</p>
@@ -143,16 +166,28 @@
 
         <div class="achievements-grid">
           <article class="achievement-card" aria-labelledby="achievement-academic">
+            <picture class="card-media">
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&amp;h=267&amp;fit=crop&amp;fm=webp&amp;q=70 400w, https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&amp;h=533&amp;fit=crop&amp;fm=webp&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img srcset="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&amp;h=267&amp;fit=crop&amp;fm=jpg&amp;q=70 400w, https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Students studying together in a library to prepare for national assessments" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
             <h3 id="achievement-academic">Academic Excellence</h3>
             <p>Placeholder: describe recent national assessment results or academic awards.</p>
           </article>
 
           <article class="achievement-card" aria-labelledby="achievement-sports">
+            <picture class="card-media">
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&amp;h=267&amp;fit=crop&amp;fm=webp&amp;q=70 400w, https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&amp;h=533&amp;fit=crop&amp;fm=webp&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img srcset="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&amp;h=267&amp;fit=crop&amp;fm=jpg&amp;q=70 400w, https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Athletes racing on a running track during a sports competition" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
             <h3 id="achievement-sports">Sports and Games</h3>
             <p>Placeholder: describe county or national sports competitions and results.</p>
           </article>
 
           <article class="achievement-card" aria-labelledby="achievement-arts">
+            <picture class="card-media">
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&amp;h=267&amp;fit=crop&amp;fm=webp&amp;q=70 400w, https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&amp;h=533&amp;fit=crop&amp;fm=webp&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img srcset="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&amp;h=267&amp;fit=crop&amp;fm=jpg&amp;q=70 400w, https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70 800w" sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&amp;h=533&amp;fit=crop&amp;fm=jpg&amp;q=70" alt="Performers on stage during a music festival performance" width="800" height="533" loading="lazy" decoding="async">
+            </picture>
             <h3 id="achievement-arts">Music, Drama and Arts</h3>
             <p>Placeholder: describe Kenya Music Festival, drama festival or art exhibition highlights.</p>
           </article>
