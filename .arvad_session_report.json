@@ -1,13 +1,10 @@
 {
-  "files_created": ["styles.css"],
-  "files_modified": [],
+  "files_created": [],
+  "files_modified": ["index.html"],
   "decisions": [
-    {"what": "Pure CSS hamburger menu shown via .nav-toggle:focus, .site-nav:focus-within, or aria-expanded=\"true\"", "why": "Spec requires a pure CSS menu; focus-based selectors keep it usable without JavaScript, and the aria-expanded selector lets future JS take over"},
-    {"what": "Hero uses a brand gradient with a dark overlay pseudo-element instead of a photo", "why": "No images exist in the project yet; the overlay is ready for a background image later"},
-    {"what": "Kenyan cultural accents done with CSS gradients (flag-colour stripe on hero, tri-colour heading underline)", "why": "Task asks for Kenyan visual elements without adding image weight on slow connections"},
-    {"what": "No box-shadows on cards/sections; hover effects use transform only", "why": "Spec performance rules: avoid shadows on large elements, use transform for animation"},
-    {"what": "Did not add scroll-reveal hidden states", "why": "Not in the spec, and the rules say content must stay visible by default without JS"},
-    {"what": "Did not link styles.css from index.html", "why": "Spec only covers creating styles.css"}
+    {"what": "Added <link rel=\"stylesheet\" href=\"styles.css\"> as the last element in <head>, after the meta tags", "why": "Spec requires the stylesheet link in <head>; the project's head-order rules place stylesheets after meta tags"},
+    {"what": "Added <script src=\"app.js\" defer></script> just before </body>", "why": "Explicitly requested by the spec, even though app.js is listed in forbidden_imports and does not exist yet; with defer, a missing file causes only a 404 and does not block rendering"},
+    {"what": "Used relative paths with no leading slash and double quotes", "why": "Spec requires paths that work on GitHub Pages; double quotes match the existing attribute style in index.html"}
   ],
-  "tools_used": ["Bash", "Read", "Write"]
+  "tools_used": ["Bash"]
 }
