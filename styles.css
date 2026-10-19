@@ -555,6 +555,19 @@ a:hover {
   font-weight: 700;
 }
 
+.about-card p + p,
+.about-history p + p {
+  margin-top: var(--space-1);
+}
+
+.about-history {
+  margin-top: var(--space-6);
+}
+
+.section-cta {
+  margin-top: var(--space-4);
+}
+
 .values-list {
   display: flex;
   flex-wrap: wrap;
@@ -681,24 +694,75 @@ a:hover {
 }
 
 .contact-list a {
-  font-weight: 600;
   overflow-wrap: anywhere;
 }
 
-.map-frame {
-  display: grid;
-  place-items: center;
-  min-height: 280px;
-  padding: var(--space-3);
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius);
-  background-color: var(--color-primary-light);
+/* Clickable phone and email links: distinct from body text, with a clear
+   hover/focus state. Buttons keep their own styling. */
+a[href^="tel:"]:not(.btn),
+a[href^="mailto:"]:not(.btn) {
   color: var(--color-primary);
+  text-decoration: underline;
   font-weight: 600;
-  text-align: center;
 }
 
-.map-placeholder figcaption {
+a[href^="tel:"]:not(.btn):hover,
+a[href^="tel:"]:not(.btn):focus-visible,
+a[href^="mailto:"]:not(.btn):hover,
+a[href^="mailto:"]:not(.btn):focus-visible {
+  color: var(--color-accent);
+  text-decoration-thickness: 2px;
+}
+
+/* Operating hours table */
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.hours-table th,
+.hours-table td {
+  padding: var(--space-1);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+}
+
+.hours-table thead th {
+  color: var(--color-primary);
+  border-bottom-width: 2px;
+}
+
+.hours-table tbody th {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.hours-table td {
+  white-space: nowrap;
+}
+
+/* Responsive Google Maps embed (16:9) */
+.map-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--color-primary-light);
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-map figcaption {
   margin-top: var(--space-1);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
@@ -842,8 +906,13 @@ a:hover {
     align-items: start;
   }
 
-  .map-frame {
-    min-height: 360px;
+  .hours-table {
+    font-size: 1rem;
+  }
+
+  .hours-table th,
+  .hours-table td {
+    padding: var(--space-1) var(--space-2);
   }
 }
 
@@ -862,7 +931,7 @@ a:hover {
   }
 
   .programs-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .achievements-grid {
@@ -908,7 +977,8 @@ a:hover {
   .skip-link,
   .site-footer,
   .hero-actions,
-  .map-placeholder {
+  .section-cta,
+  .contact-map {
     display: none !important;
   }
 

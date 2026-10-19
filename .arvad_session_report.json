@@ -1,13 +1,15 @@
 {
-  "files_created": ["images/.gitkeep"],
-  "files_modified": ["index.html", "README.md"],
+  "files_created": [],
+  "files_modified": ["index.html", "styles.css"],
   "decisions": [
-    {"what": "Created images/.gitkeep as an empty file", "why": "Spec allows an empty file to keep the directory tracked"},
-    {"what": "Used Unsplash direct-link URLs (fm=webp / fm=jpg, 400w/800w) for hero and card <picture> elements instead of local images/*.webp/jpg files", "why": "images/ is empty, and the spec says to replace placeholder images with Unsplash URLs; Unsplash serves both formats, so the WebP/JPEG fallback still works"},
-    {"what": "Kept favicon and logo pointing at local images/favicon.ico and images/logo.png", "why": "Spec explicitly specifies these paths"},
-    {"what": "Hero image positioned behind content with minimal inline styles (absolute, z-index -2, object-fit cover)", "why": "Spec scope covers only index.html; the existing hero uses isolation and a z-index -1 overlay, so this places the photo beneath the overlay without editing styles.css"},
-    {"what": "Added images to program cards and achievement cards with lazy loading, width/height, sizes and descriptive alt text", "why": "Spec asks for picture elements on program cards and other sections"},
-    {"what": "Added an 'Image Management' section to README after the existing image guidelines", "why": "Spec requests sourcing, tools, dimensions, WebP, alt text, 200KB limit and slow-connection testing guidance"}
+    {"what": "Used the school identity 'Mwangaza Academy', Milimani Road, P.O. Box 1234 - 20100, Nakuru, with phone +254 712 345 678 and email info@mwangazaacademy.ac.ke", "why": "The spec asks for real school details but does not give any; a culturally appropriate Kenyan identity replaces every 'School Name' and [placeholder] token consistently"},
+    {"what": "Restructured programmes into three cards: Pre-Primary (PP1-PP2), Primary (Class 1-8), Secondary (Form 1-4), dropped the Junior School card, and changed the programs grid from 4 to 3 columns at 1024px", "why": "The spec lists exactly these three grade levels; 3 cards in a 4-column grid would leave an empty column"},
+    {"what": "Google Maps iframe uses https://www.google.com/maps?q=...&output=embed instead of a /maps/embed?pb=... URL, with a title attribute for accessibility", "why": "A valid pb parameter cannot be produced without the Maps UI; the q/output=embed form works without an API key and keeps every attribute the spec requires"},
+    {"what": "Achievement badges are emoji spans with aria-hidden inside the card headings, alongside filled-in stats and testimonials", "why": "The spec asks for icons or badges; emoji need no extra assets and are hidden from screen readers"},
+    {"what": "Operating hours are now a <table> with row/column headers (Mon-Fri 7:00 AM - 4:00 PM; weekends/holidays closed)", "why": "The spec asks for a table; scoped headers keep it accessible"},
+    {"what": "Contact link selectors use :not(.btn)", "why": "The 'Get in Touch' CTA is a mailto link styled as .btn-primary; without the exclusion the attribute selector (higher specificity) would override the button styling"},
+    {"what": "Added small layout rules (.section-cta, .about-history, paragraph spacing in about cards and history) and removed the unused .map-frame/.map-placeholder styles", "why": "The new markup needs spacing because the CSS reset removes margins; the placeholder map markup no longer exists"},
+    {"what": "JSON-LD LocalBusiness block placed in <head>", "why": "Spec requires Schema.org structured data with contact info"}
   ],
-  "tools_used": ["Bash", "Edit", "Write"]
+  "tools_used": ["Read", "Bash", "Write"]
 }
